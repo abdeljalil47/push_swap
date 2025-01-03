@@ -4,13 +4,19 @@ char **ft_fix_arg(char **s, int ac)
 {
     int i = 0;
     char *str = NULL;
+    char **new;
+    char *tmp;
+
     while (i < ac)
     {
-        str = ft_strjoin(str, s[i]);
+        tmp = ft_strjoin(str, s[i]);
+        free(str);
+        str = tmp;
         i++;
     }
-    s = ft_split(str, ' ');
-    return s;
+    new = ft_split(str, ' ');
+    free(str);
+    return new;
 }
 
 void sys()
@@ -36,24 +42,26 @@ int main(int ac, char *av[])
         free(av[i]);
         i++;
     }
+    free(av);
     if (a == NULL)
     {
         printf("Error\n");
         return 1;
     }
-    if (!not_sorted(a)) // not sorted
+    if (!not_sorted(a))
     {
         if (ft_lstsize(a) == 2)
             sa(a);
         else if (ft_lstsize(a) == 3)
-            sorted_way(&a); // need to creat function to dale with 3 arg
+            sorted_way(&a);
         else
-            push_swap(&a, &b); // need to creat function to dale with 4 and 5 arg
+            push_swap(&a, &b);
     }
-    while (a != NULL)
+    b = a;
+    while (b!=NULL)
     {
-        printf("%d ", a->content);
-        a = a->next;
+        printf("%d ", b->content);
+        b = b->next;
     }
     ft_lstclear(&a);
     return 0;

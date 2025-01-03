@@ -1,5 +1,16 @@
 #include "push_swap.h"
 
+int set_index(t_node *min_node, int index)
+{
+    if (min_node)
+    {
+        min_node->index = index;
+        min_node->flag = 1;
+        index++;
+    }
+    return index;
+}
+
 void assign_indexes(t_node *head)
 {
     t_node *current;
@@ -22,13 +33,14 @@ void assign_indexes(t_node *head)
             }
             current = current->next;
         }
-        if (min_node)
-        {
-            min_node->index = index;
-            min_node->flag = 1;
-            index++;
-        }
+        index = set_index(min_node, index);
     }
+}
+
+t_node *error_free(t_node *a)
+{
+    ft_lstclear(&a);
+    return NULL;
 }
 
 t_node *create_list(char **s, t_node *a)
@@ -37,16 +49,16 @@ t_node *create_list(char **s, t_node *a)
     long value = 0;
     int inndex = -1;
     int flag = 0;
-    
+
     while (s[i] != NULL)
     {
         if (!check_argument(s[i]))
-            return NULL;
+            return error_free(a);
         value = ft_atoi(s[i]);
         if (value > INT_MAX || value < INT_MIN)
-            return NULL;
+            return error_free(a);
         if (!check_duplicate(a, (int)value))
-            return NULL;
+            return error_free(a);
         ft_lstadd_back(&a, ft_lstnew((int)value, inndex, flag));
         i++;
     }
