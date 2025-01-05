@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_ar.c                                          :+:      :+:    :+:   */
+/*   free_succ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 16:47:23 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/05 23:30:25 by abdsebba         ###   ########.fr       */
+/*   Created: 2025/01/04 16:38:22 by abdsebba          #+#    #+#             */
+/*   Updated: 2025/01/06 00:02:06 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_ar(t_node **a, t_node **b, int flag)
+void	free_succ(t_node *a, char **av, int ac)
 {
-	t_node	*push;
+	int	i;
 
-	if (!a || !*a)
-		return ;
-	push = NULL;
-	if (flag == 0)
-		write(1, "pa\n", 3);
-	else if (flag == 1)
-		write(1, "pb\n", 3);
-	push = *a;
-	(*a) = (*a)->next;
-	push->next = *b;
-	*b = push;
+	i = 0;
+	while (i < ac)
+	{
+		free(av[i]);
+		i++;
+	}
+	free(av);
+	ft_lstclear(&a);
+}
+
+t_node *error_free(t_node *a)
+{
+    if (a != NULL)
+        ft_lstclear(&a);
+    return (NULL);
 }

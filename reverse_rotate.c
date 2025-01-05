@@ -1,18 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/04 16:47:41 by abdsebba          #+#    #+#             */
+/*   Updated: 2025/01/05 23:26:57 by abdsebba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int ft_reverse_rotate(t_node **head)
+void	ft_reverse_rotate(t_node **head, int flag)
 {
-    t_node *current = *head;
-    t_node *prev = NULL;
-    if (*head == NULL || (*head)->next == NULL)
-        return 1;
-    while (current->next != NULL)
-    {
-        prev = current;
-        current = current->next;
-    }
-    current->next = *head;
-    *head = current;
-    prev->next = NULL;
-    return 0;
+	t_node	*current;
+	t_node	*prev;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	current = *head;
+	prev = NULL;
+	if (flag == 0)
+		write(1, "rra\n", 4);
+	else if (flag == 1)
+		write(1, "rrb\n", 4);
+	else if (flag == 2)
+		write(1, "rrr\n", 3);
+	while (current->next != NULL)
+	{
+		prev = current;
+		current = current->next;
+	}
+	current->next = *head;
+	*head = current;
+	prev->next = NULL;
+}
+
+void rrr(t_node **a, t_node **b, int flag)
+{
+	ft_reverse_rotate(a, flag);
+	ft_reverse_rotate(b, 3);
 }
