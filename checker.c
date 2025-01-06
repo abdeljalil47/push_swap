@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:15:09 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 16:43:14 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/07 00:28:31 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,15 @@ char	**ft_fix_args(char **s, int ac)
 	while (i < ac)
 	{
 		tmp = ft_strjoin1(str, s[i]);
+		if (tmp == NULL)
+			return (NULL);
 		free(str);
 		str = tmp;
 		i++;
 	}
 	new = ft_split(str, ' ');
+	if (new == NULL)
+		return (NULL);
 	free(str);
 	return (new);
 }
@@ -91,6 +95,8 @@ int	main(int ac, char *av[])
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
+	if (!ft_validarg(av, ac))
+		return (write(1, "Error\n", 6), 1);
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
 	else

@@ -6,11 +6,25 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:13 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/04 20:16:45 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/07 00:28:17 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_validarg(char **s, int ac)
+{
+	int	i;
+
+	i = 0;
+	while (i < ac)
+	{
+		if (s[i][0] == '\0')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_isdigit(int c)
 {

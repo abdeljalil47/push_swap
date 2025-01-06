@@ -6,7 +6,7 @@
 #    By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 16:55:21 by abdsebba          #+#    #+#              #
-#    Updated: 2025/01/05 23:20:49 by abdsebba         ###   ########.fr        #
+#    Updated: 2025/01/07 00:14:41 by abdsebba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME=push_swap
 BONUS=checker
 
 CC=cc
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror -g
 
 SRC=check_argument.c first_algorithm.c ft_split.c push_swap.c push_command.c reverse_rotate.c secon_utls.c swap_ar.c \
 	create_list.c free_succ.c handler_n.c push_ar.c push_utls.c rotate_ar.c second_algorithm.c

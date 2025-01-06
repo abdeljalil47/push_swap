@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:05 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 16:06:25 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/07 00:28:24 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	error_p(t_node **a, t_node **b, char *get_line);
 char	*ft_strjoin(char *s1, char *s2);
 void	checker_read(t_node *a, t_node *b, char **av, int ac);
 
+int		ft_validarg(char **s, int ac);
 int		ft_isdigit(int c);
 int		ft_sign(int c);
 int		check_duplicate(t_node *a, int nb);

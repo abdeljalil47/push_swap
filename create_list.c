@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:17 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 00:04:38 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/07 00:24:27 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ t_node	*create_list(char **s, t_node *a)
 	value = 0;
 	inndex = -1;
 	flag = 0;
+	if (s == NULL)
+		return (NULL);
 	while (s[i] != NULL)
 	{
 		if (!check_argument(s[i]))
