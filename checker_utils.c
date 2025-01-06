@@ -6,11 +6,39 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 17:37:07 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/05 22:34:30 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:51:49 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	checker_read(t_node *a, t_node *b, char **av, int ac)
+{
+    int len = 0;
+    char *get_line;
+	int	i;
+
+	i = 0;
+	while (i < ac)
+	{
+		free(av[i]);
+		i++;
+	}
+	free(av);
+	len = ft_lstsize(a);
+    get_line = get_next_line(0);
+    while (get_line)
+    {
+        cammond(get_line, &a, &b);
+        free(get_line);
+        get_line = get_next_line(0);
+    }
+    if (not_sorted(a) && ft_lstsize(a) == len)
+        write(1, "OK\n", 3);
+    else
+        write(1, "KO\n", 3);
+    free_succ1(a, b);
+}
 
 long	ft_atoi(char *str)
 {

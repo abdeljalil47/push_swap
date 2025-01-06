@@ -6,16 +6,19 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:15:09 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 00:09:15 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:50:33 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error_p(t_node **a, t_node **b)
+void error_p(t_node **a, t_node **b, char *get_line)
 {
-    ft_lstclear(a);
-    ft_lstclear(b);
+    if (*a)
+        ft_lstclear(a);
+    if (*b)
+        ft_lstclear(b);
+    free(get_line);
     write(1, "Error\n", 6);
     exit(1);
 }
@@ -55,7 +58,7 @@ void cammond(char *get_line, t_node **a, t_node **b)
     else if (!ft_strcmp(get_line, "rrr\n"))
         rrr(a, b, 2);
     else
-        error_p(a, b);
+        error_p(a, b, get_line);
 }
 
 char **ft_fix_args(char **s, int ac)
@@ -75,17 +78,11 @@ char **ft_fix_args(char **s, int ac)
     free(str);
     return new;
 }
-void sys()
-{
-    system("leaks checker");
-}
+
 int main(int ac, char *av[])
 {
-    atexit(sys);
     t_node *a = NULL;
     t_node *b = NULL;
-    int len = 0;
-    char *get_line;
     if (ac == 1 || (ac == 2 && !av[1][0]))
         return 1;
     if (ac == 2)
@@ -96,25 +93,7 @@ int main(int ac, char *av[])
     if (a == NULL)
     {
         write(1, "Error\n", 6);
-        free_succ(a, av, ac);
-        return 1;
+        return ((free_succ(a, b, av, ac)), 1);
     }
-    len = ft_lstsize(a);
-    get_line = get_next_line(0);
-    while (get_line)
-    {
-        cammond(get_line, &a, &b);
-        get_line = get_next_line(0);
-    }
-    if (not_sorted(a) && ft_lstsize(a) == len)
-        write(1, "OK\n", 3);
-    else
-        write(1, "KO\n", 3);
-    b = a;
-    while (b!=NULL)
-    {
-        printf("%d ", b->content);
-        b=b->next;
-    }
-    free_succ(a, av, ac);
+    checker_read(a, b, av, ac);
 }

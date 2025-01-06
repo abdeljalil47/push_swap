@@ -6,18 +6,17 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:05 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/05 23:27:11 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:48:01 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <libc.h>
 # include <limits.h>
-
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -44,18 +43,19 @@ char	*ft_strjoin1(char *s1, char *s2);
 char	*ft_strdup(const char *s);
 int		not_sorted(t_node *a);
 t_node	*find_the_highest(t_node **a);
-
-char	*get_next_line(int fd);
-char	**ft_fix_args(char **s, int ac);
-void	cammond(char *get_line, t_node **a, t_node **b);
-int		ft_strcmp(char *s1, char *s2);
-void	error_p(t_node **a, t_node **b);
-char	*ft_strjoin(char *s1, char *s2);
 void	sorted_way(t_node **a);
 void	handler_four(t_node **a, t_node **b);
 void	handler_five(t_node **a, t_node **b);
 void	ft_sec_algorithm(t_node **a, t_node **b);
 void	ft_algorithm(t_node **head, t_node **b);
+
+char	*get_next_line(int fd);
+char	**ft_fix_args(char **s, int ac);
+void	cammond(char *get_line, t_node **a, t_node **b);
+int		ft_strcmp(char *s1, char *s2);
+void	error_p(t_node **a, t_node **b, char *get_line);
+char	*ft_strjoin(char *s1, char *s2);
+void	checker_read(t_node *a, t_node *b, char **av, int ac);
 
 int		ft_isdigit(int c);
 int		ft_sign(int c);
@@ -79,7 +79,8 @@ int		ft_lstsize(t_node *lst);
 void	ft_lstadd_front(t_node **lst, t_node *new);
 
 void	ft_lstclear(t_node **lst);
-void	free_succ(t_node *a, char **av, int ac);
+void	free_succ(t_node *a, t_node *b, char **av, int ac);
+void	free_succ1(t_node *a, t_node *b);
 t_node	*error_free(t_node *a);
 
 #endif

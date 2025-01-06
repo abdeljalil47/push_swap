@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:30 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/04 16:45:42 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 13:57:49 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,9 @@ int	find_the_smallest(t_node **a)
 
 void	handler_four(t_node **a, t_node **b)
 {
-	t_node	*cur;
 	int		min_node;
 
 	min_node = find_the_smallest(a);
-	cur = *a;
 	if (min_node <= 2)
 	{
 		while (min_node-- != 0)
@@ -62,11 +60,9 @@ void	handler_four(t_node **a, t_node **b)
 
 void	handler_five(t_node **a, t_node **b)
 {
-	t_node	*cur;
 	int		min_node;
 
 	min_node = find_the_smallest(a);
-	cur = *a;
 	if (min_node <= 2)
 	{
 		while (min_node-- != 0)
