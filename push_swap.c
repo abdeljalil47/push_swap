@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:37 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 15:06:08 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:17:19 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ int	main(int ac, char *av[])
 	}
 	if (!not_sorted(a))
 		push_swap(&a, &b);
-	b = a;
-	while (b!=NULL)
-	{
-		printf("%d ", b->content);
-		b=b->next;
-	}
 	free_succ(a, b, av, ac);
 	return (0);
 }
