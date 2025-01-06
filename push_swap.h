@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:05 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 14:48:01 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:06:25 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		ft_lstsize(t_node *lst);
 void	ft_lstadd_front(t_node **lst, t_node *new);
 
 void	ft_lstclear(t_node **lst);
-void	free_succ(t_node *a, t_node *b, char **av, int ac);
+void	free_succ(t_node *a, char **av);
 void	free_succ1(t_node *a, t_node *b);
 t_node	*error_free(t_node *a);
 

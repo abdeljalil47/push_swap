@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:47:45 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/05 16:22:52 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:38:31 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_rotate(t_node **head, int flag)
 	curr->next = NULL;
 }
 
-void rr(t_node **a, t_node **b, int flag)
+void	rr(t_node **a, t_node **b, int flag)
 {
 	ft_rotate(a, flag);
 	ft_rotate(b, 3);

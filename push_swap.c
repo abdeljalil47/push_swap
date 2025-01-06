@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:37 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 15:17:19 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:15:00 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,9 @@ char	**ft_fix_arg(char **s, int ac)
 	free(str);
 	return (new);
 }
-void sys()
-{
-	system("leaks push_swap");
-}
+
 int	main(int ac, char *av[])
 {
-	atexit(sys);
 	t_node	*a;
 	t_node	*b;
 
@@ -54,10 +50,10 @@ int	main(int ac, char *av[])
 	if (a == NULL)
 	{
 		write(1, "Error\n", 6);
-		return (free_succ(a, b, av, ac), 1);
+		return (free_succ(a, av), 1);
 	}
 	if (!not_sorted(a))
 		push_swap(&a, &b);
-	free_succ(a, b, av, ac);
+	free_succ(a, av);
 	return (0);
 }
