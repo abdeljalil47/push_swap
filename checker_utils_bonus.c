@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*   checker_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 17:37:07 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/06 16:40:32 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:16:37 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,22 @@ void	checker_read(t_node *a, t_node *b, char **av, int ac)
 	int		len;
 	char	*get_line;
 	int		i;
+	t_bonus	*ads;
 
 	i = 0;
-	len = 0;
-	while (i < ac)
-	{
-		free(av[i]);
-		i++;
-	}
-	free(av);
 	len = ft_lstsize(a);
+	ads = NULL;
+	while (i++ < ac)
+		free(av[i]);
+	free(av);
 	get_line = get_next_line(0);
 	while (get_line)
 	{
-		cammond(get_line, &a, &b);
+		cammond(get_line, &a, &b, &ads);
 		free(get_line);
 		get_line = get_next_line(0);
 	}
+	ft_create_instra(&ads, &a, &b);
 	if (not_sorted(a) && ft_lstsize(a) == len)
 		write(1, "OK\n", 3);
 	else
@@ -50,6 +49,8 @@ long	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
+	if (!check_parcinte(str))
+		return (INT_MAX + (long)1);
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
@@ -60,6 +61,8 @@ long	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - 48);
+		if (result > INT_MAX || result < INT_MIN)
+			return (INT_MAX + (long)1);
 		i++;
 	}
 	return (sign * result);

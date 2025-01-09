@@ -6,7 +6,7 @@
 #    By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 16:55:21 by abdsebba          #+#    #+#              #
-#    Updated: 2025/01/07 00:14:41 by abdsebba         ###   ########.fr        #
+#    Updated: 2025/01/09 18:19:09 by abdsebba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME=push_swap
 BONUS=checker
 
 CC=cc
-CFLAGS=-Wall -Wextra -Werror -g
+CFLAGS=-Wall -Wextra -Werror
 
 SRC=check_argument.c first_algorithm.c ft_split.c push_swap.c push_command.c reverse_rotate.c secon_utls.c swap_ar.c \
-	create_list.c free_succ.c handler_n.c push_ar.c push_utls.c rotate_ar.c second_algorithm.c
+	create_list.c free_succ.c handler_n.c push_ar.c push_utls.c rotate_ar.c second_algorithm.c check_par.c
 
-SRC_BONUS=checker.c get_next_line_utils.c get_next_line.c check_argument.c ft_split.c reverse_rotate.c swap_ar.c \
-	create_list.c free_succ.c push_ar.c push_utls.c rotate_ar.c checker_utils.c
+SRC_BONUS=checker_bonus.c get_next_line_utils.c get_next_line.c check_argument.c ft_split.c reverse_rotate.c swap_ar.c \
+	create_list.c free_succ.c push_ar.c push_utls.c rotate_ar.c checker_utils_bonus.c check_par.c create_instractio_bonus.c
 
 OBJ_BONUS=$(SRC_BONUS:.c=.o)
 OBJ=$(SRC:.c=.o)

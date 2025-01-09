@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:37 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/07 00:28:27 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:17:26 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	main(int ac, char *av[])
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+	if (ac == 1)
 		return (1);
-	if (!ft_validarg(av, ac))
+	if (!ft_validarg(av, ac) || (ac == 2 && !av[1][0]))
 		return (write(1, "Error\n", 6), 1);
 	if (ac == 2)
 		av = ft_split(av[1], ' ');

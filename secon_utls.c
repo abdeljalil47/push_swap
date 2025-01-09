@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:47:47 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/05 22:29:20 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:13:04 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ long	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
+	if (!check_parcinte(str))
+		return (INT_MAX + (long)1);
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
@@ -105,6 +107,8 @@ long	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - 48);
+		if (result > INT_MAX || result < INT_MIN)
+			return (INT_MAX + (long)1);
 		i++;
 	}
 	return (sign * result);

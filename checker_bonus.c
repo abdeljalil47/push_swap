@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:15:09 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/07 00:28:31 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:58:50 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,30 @@ int	ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-void	cammond(char *get_line, t_node **a, t_node **b)
+void	cammond(char *get_line, t_node **a, t_node **b, t_bonus **ads)
 {
 	if (!ft_strcmp(get_line, "sa\n"))
-		ft_swap_ar(a);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "sb\n"))
-		ft_swap_ar(b);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "ss\n"))
-		ss(a, b);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "pa\n"))
-		push_ar(b, a, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "pb\n"))
-		push_ar(a, b, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "ra\n"))
-		ft_rotate(a, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "rb\n"))
-		ft_rotate(b, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "rr\n"))
-		rr(a, b, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "rra\n"))
-		ft_reverse_rotate(a, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "rrb\n"))
-		ft_reverse_rotate(b, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else if (!ft_strcmp(get_line, "rrr\n"))
-		rrr(a, b, 3);
+		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else
 		error_p(a, b, get_line);
 }

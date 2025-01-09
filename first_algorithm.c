@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:20 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/04 16:51:01 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/08 21:43:18 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_algorithm(t_node **a, t_node **b)
 		}
 		else
 			ft_rotate(a, 0);
+			// ft_reverse_rotate(a, 0);
 		current = *a;
 	}
 	ft_sec_algorithm(a, b);
