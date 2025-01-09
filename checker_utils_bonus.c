@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 17:37:07 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/09 17:16:37 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:12:34 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@ void	checker_read(t_node *a, t_node *b, char **av, int ac)
 	char	*get_line;
 	int		i;
 	t_bonus	*ads;
+	t_bonus	*bup;
 
 	i = 0;
 	len = ft_lstsize(a);
 	ads = NULL;
-	while (i++ < ac)
-		free(av[i]);
+	while (i < ac)
+		free(av[i++]);
 	free(av);
-	get_line = get_next_line(0);
-	while (get_line)
+	while ((get_line = get_next_line(0)) != NULL)
 	{
 		cammond(get_line, &a, &b, &ads);
 		free(get_line);
-		get_line = get_next_line(0);
 	}
+	bup = ads;
 	ft_create_instra(&ads, &a, &b);
 	if (not_sorted(a) && ft_lstsize(a) == len)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	free_succ1(a, b);
+	free_succ1(a, b, bup);
 }
 
 long	ft_atoi(char *str)

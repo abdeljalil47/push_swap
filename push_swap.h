@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:05 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/09 22:46:10 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:10:46 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <libc.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -93,8 +92,11 @@ int		ft_lstsize(t_node *lst);
 void	ft_lstadd_front(t_node **lst, t_node *new);
 
 void	ft_lstclear(t_node **lst);
+void	ft_lstfree_bonus(t_bonus *node);
+void	ft_lstfree_bonus(t_bonus *node);
+void	ft_lstclear1(t_bonus **lst);
 void	free_succ(t_node *a, char **av);
-void	free_succ1(t_node *a, t_node *b);
+void	free_succ1(t_node *a, t_node *b, t_bonus *ads);
 t_node	*error_free(t_node *a);
 
 #endif

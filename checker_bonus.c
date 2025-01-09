@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:15:09 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/09 16:58:50 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/09 23:11:13 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,13 @@ char	**ft_fix_args(char **s, int ac)
 	free(str);
 	return (new);
 }
-
+void sys()
+{
+	system("leaks checker");
+}
 int	main(int ac, char *av[])
 {
+	atexit(sys);
 	t_node	*a;
 	t_node	*b;
 
