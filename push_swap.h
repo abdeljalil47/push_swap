@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:05 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/09 17:13:45 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/09 22:46:10 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		ft_sign(int c);
 int		check_duplicate(t_node *a, int nb);
 int		check_argument(char *av);
 int		check_parcinte(char *s);
+int		check_test(t_node **a);
 
 void	push_ar(t_node **a, t_node **b, int flag);
 void	ft_reverse_rotate(t_node **head, int flag);

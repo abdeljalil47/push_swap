@@ -27,7 +27,7 @@ for j in range(10**5):
     print(f"{BLUE}Test {j}{RESET}")
     lst = set()
     while len(lst) < n:
-        aid = random.randint(-1, 900000000)
+        aid = random.randint(-1000, 9000)
         lst.add(aid)
     text = "./push_swap " + " ".join(map(str, lst)) + " | wc -l"
     result = subprocess.run(text, shell=True, capture_output=True, text=True)

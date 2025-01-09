@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:20 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/08 21:43:18 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/09 22:46:52 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ int	check_range(t_node **a)
 		return (range = 33);
 	else
 		return (range = 16);
+}
+
+void	check_ra_rra(t_node **a)
+{
+	if (!check_test(a))
+		ft_reverse_rotate(a, 0);
+	else
+		ft_rotate(a, 0);
 }
 
 void	ft_algorithm(t_node **a, t_node **b)
@@ -47,8 +55,7 @@ void	ft_algorithm(t_node **a, t_node **b)
 			i++;
 		}
 		else
-			ft_rotate(a, 0);
-			// ft_reverse_rotate(a, 0);
+			check_ra_rra(a);
 		current = *a;
 	}
 	ft_sec_algorithm(a, b);
