@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:05 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/10 00:10:46 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:13:10 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ char	*get_next_line(int fd);
 char	**ft_fix_args(char **s, int ac);
 void	cammond(char *get_line, t_node **a, t_node **b, t_bonus **ads);
 int		ft_strcmp(char *s1, char *s2);
-void	error_p(t_node **a, t_node **b, char *get_line);
+void	error_p(t_node **a, t_node **b, t_bonus **ads, char *get_line);
 char	*ft_strjoin(char *s1, char *s2);
-void	checker_read(t_node *a, t_node *b, char **av, int ac);
+void	checker_read(t_node *a, t_node *b, char **av);
 t_bonus	*ft_lstnew_bonus(char *content);
 t_bonus	*ft_lstlast_bonus(t_bonus *lst);
 void	ft_lstadd_back_bonus(t_bonus **lst, t_bonus *new);

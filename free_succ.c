@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:38:22 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/10 00:09:45 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:19:40 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,26 @@ void	free_succ(t_node *a, char **av)
 	free(av);
 }
 
-void ft_lstfree_bonus(t_bonus *node)
+void	ft_lstfree_bonus(t_bonus *node)
 {
-    if (node)
-    {
-        if (node->rule)
-            free(node->rule);
-        free(node);
-    }
+	if (node)
+	{
+		if (node->rule)
+			free(node->rule);
+		free(node);
+	}
 }
 
 void	ft_lstclear1(t_bonus **lst)
 {
-    t_bonus *temp;
+	t_bonus	*temp;
 
-    while (*lst)
-    {
-        temp = *lst;
-        *lst = (*lst)->more;
-        ft_lstfree_bonus(temp);
-    }
+	while (*lst)
+	{
+		temp = *lst;
+		*lst = (*lst)->more;
+		ft_lstfree_bonus(temp);
+	}
 }
 
 void	free_succ1(t_node *a, t_node *b, t_bonus *ads)

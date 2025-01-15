@@ -6,18 +6,20 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:15:09 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/09 23:11:13 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:15:25 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_p(t_node **a, t_node **b, char *get_line)
+void	error_p(t_node **a, t_node **b, t_bonus **ads, char *get_line)
 {
 	if (*a)
 		ft_lstclear(a);
 	if (*b)
 		ft_lstclear(b);
+	if (*ads)
+		ft_lstclear1(ads);
 	free(get_line);
 	write(1, "Error\n", 6);
 	exit(1);
@@ -58,7 +60,7 @@ void	cammond(char *get_line, t_node **a, t_node **b, t_bonus **ads)
 	else if (!ft_strcmp(get_line, "rrr\n"))
 		ft_lstadd_back_bonus(ads, ft_lstnew_bonus(get_line));
 	else
-		error_p(a, b, get_line);
+		error_p(a, b, ads, get_line);
 }
 
 char	**ft_fix_args(char **s, int ac)
@@ -85,21 +87,17 @@ char	**ft_fix_args(char **s, int ac)
 	free(str);
 	return (new);
 }
-void sys()
-{
-	system("leaks checker");
-}
+
 int	main(int ac, char *av[])
 {
-	atexit(sys);
 	t_node	*a;
 	t_node	*b;
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+	if (ac == 1)
 		return (1);
-	if (!ft_validarg(av, ac))
+	if (!ft_validarg(av, ac) || (ac == 2 && !av[1][0]))
 		return (write(1, "Error\n", 6), 1);
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
@@ -111,5 +109,5 @@ int	main(int ac, char *av[])
 		write(1, "Error\n", 6);
 		return ((free_succ(a, av)), 1);
 	}
-	checker_read(a, b, av, ac);
+	checker_read(a, b, av);
 }

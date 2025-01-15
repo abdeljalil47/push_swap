@@ -6,30 +6,31 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 17:37:07 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/10 00:12:34 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:02:48 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	checker_read(t_node *a, t_node *b, char **av, int ac)
+void	checker_read(t_node *a, t_node *b, char **av)
 {
 	int		len;
 	char	*get_line;
-	int		i;
 	t_bonus	*ads;
 	t_bonus	*bup;
 
-	i = 0;
-	len = ft_lstsize(a);
+	len = 0;
 	ads = NULL;
-	while (i < ac)
-		free(av[i++]);
+	while (av[len])
+		free(av[len++]);
 	free(av);
-	while ((get_line = get_next_line(0)) != NULL)
+	len = ft_lstsize(a);
+	get_line = get_next_line(0);
+	while (get_line != NULL)
 	{
 		cammond(get_line, &a, &b, &ads);
 		free(get_line);
+		get_line = get_next_line(0);
 	}
 	bup = ads;
 	ft_create_instra(&ads, &a, &b);
@@ -61,7 +62,7 @@ long	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - 48);
-		if (result > INT_MAX || result < INT_MIN)
+		if ((sign * result) > INT_MAX || (sign * result) < INT_MIN)
 			return (INT_MAX + (long)1);
 		i++;
 	}

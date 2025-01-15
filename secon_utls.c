@@ -6,7 +6,7 @@
 /*   By: abdsebba <abdsebba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:47:47 by abdsebba          #+#    #+#             */
-/*   Updated: 2025/01/09 17:13:04 by abdsebba         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:04:20 by abdsebba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ long	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - 48);
-		if (result > INT_MAX || result < INT_MIN)
+		if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
 			return (INT_MAX + (long)1);
 		i++;
 	}
